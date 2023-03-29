@@ -3,8 +3,6 @@ const router = express.Router();
 const path = require("path");
 const fetch = require('node-fetch');
 
-
-
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
@@ -17,16 +15,17 @@ const options = {
     }
 };
 // node fetch 
-router.post('/submit',(req,res)=>{
+router.post('/submit', (req, res) => {
+    console.log(req, "hhhh");
+    fetch(`https://mailcheck.p.rapidapi.com/?domain=yasser@gmail.com`, options)
+        .then(console.log)
+    // .then(response => response.json())
+    // .then(data => {
+    //     console.log('data', { data }, req.body)
+    //     res.json(data)
+    // })
+    // .catch(err => console.error(err));
 
-   const email =req.body.email;
-    fetch(`https://mailcheck.p.rapidapi.com/?domain=${email}`, options)
-    .then(response => response.json())
-    .then(console.log)
-    .catch(err => console.error(err));
-    res.redirect("/")
-    res.end()
-    
 });
 
 module.exports = router;
