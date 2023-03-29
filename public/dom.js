@@ -4,12 +4,14 @@ const emailInput = document.querySelector(".emailInput");
 
 
 SubmitI.addEventListener('click', () => {
-    fetch('/submit', {
-        method: 'POST',
-        body: `${emailInput.value}`,
-        headers: {
-            "Content-Type": "text/plain"
-        }
-    })
+    fetch(`/submit:${emailInput.value}`, {
+    }).then(result => result.json())
+        .then(result => showResult(result));
 });
 
+const showResult = (data) => {
+    console.log(data);
+    if (data.valid === false) {
+        console.log("hi");
+    }
+}
