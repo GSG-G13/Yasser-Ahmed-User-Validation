@@ -17,16 +17,13 @@ const options = {
     }
 };
 // node fetch 
-router.post('/submit',(req,res)=>{
+router.get('/submit:email', (req, res) => {
 
-   const email =req.body.email;
-    fetch(`https://mailcheck.p.rapidapi.com/?domain=${email}`, options)
-    .then(response => response.json())
-    .then(console.log)
-    .catch(err => console.error(err));
-    res.redirect("/")
-    res.end()
-    
+    fetch(`https://mailcheck.p.rapidapi.com/?domain=${req.params.email}`, options)
+        .then(response => response.json())
+        .then(result => res.send(result))
+        .catch(err => console.error(err));
+
 });
 
 module.exports = router;
