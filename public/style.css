@@ -116,6 +116,14 @@ body{
   
   
 }
+.successEle{
+  color: rgb(0, 255, 64);
+  font-size:medium;
+  position: relative;
+  bottom: 10px;
+  
+  
+}
 #form .newClass input{
   height: 55px;
   width: 100%;
@@ -125,6 +133,20 @@ body{
   font-weight: 400;
   color: #333;
   border: 1.5px solid #f00909;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+#form .success input{
+  height: 55px;
+  width: 100%;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #28f009;
   border-bottom-width: 2.5px;
   border-radius: 6px;
   transition: all 0.3s ease;

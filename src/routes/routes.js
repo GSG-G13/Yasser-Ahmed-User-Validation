@@ -17,9 +17,9 @@ const options = {
     }
 };
 // node fetch 
-router.get('/submit:email', (req, res) => {
+router.post('/submit', (req, res) => {
 
-    fetch(`https://mailcheck.p.rapidapi.com/?domain=${req.params.email}`, options)
+    fetch(`https://mailcheck.p.rapidapi.com/?domain=${req.body.email}`, options)
         .then(response => response.json())
         .then(result => res.send(result))
         .catch(err => console.error(err));
