@@ -12,5 +12,10 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use(routes);
+app.use((req, res) => {
+    res
+        .status(404)
+        .sendFile(path.join(__dirname, '..', 'public', 'html', '404.html'));
+});
 
 module.exports = app;
